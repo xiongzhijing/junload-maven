@@ -1,6 +1,11 @@
 # junload-maven
  oracle相比informix而言，在卸数方面相对不那么方便。以前使用proc写过一个unload，这次考虑迁移到java版本。
- 命令行参数：
+ 使用maven package打包后，生成一个**可执行jar**.
+ ```shell
+ java -jar xxxx.jar opts 
+ ````
+ 
+ 参数如下：
  
 ## -c configfile  数据库配置文件，如
 
