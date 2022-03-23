@@ -1,6 +1,7 @@
 # junload-maven
- oracle相比informix而言，在卸数方面相对不那么方便。以前使用proc写过一个unload，这次考虑迁移到java版本。
- 使用maven package打包后，生成一个**可执行jar**.
+ oracle相比informix而言，在卸数方面相对不那么方便。红了樱桃，绿了芭蕉，个事种种，终于到了将proc版本迁移到java版本的时机。
+ 
+ 在使用maven package打包后，生成一个**可执行jar**. 
  ```shell
  java -jar junload-1.0.0-jar-with-dependencies.jar -c configfile [ -t tabname ] [ -q sql ] [ -f sqlfile ] -d delimiter -o outfile 
  ````
@@ -17,9 +18,9 @@ jdbc.password=password
 jdbc.timeout=10 #数据库建立连接超时时间
 ```
 ## -t tabname 
-表名，一般用于整表卸数 ，作为 ***-q*** 的简化版本，等同于 ```sql select * from tabname ```
+表名，一般用于整表卸数 ，作为 ***-q*** 的简化版本，等同于 ``` select * from tabname ```
 ## -q sql 
-指定sql语句，如 ```sql select sysdate from dual ```
+指定sql语句，如 ``` select sysdate from dual ```
 ## -f sqlfile 
 对于sql语句较长的情况下，可以编辑一个文本用来存放***sql***语句
 ## -d delimiter 
