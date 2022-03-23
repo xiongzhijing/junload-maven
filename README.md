@@ -1,5 +1,5 @@
 # junload-maven
- oracle相比informix而言，在卸数方面相对不那么方便。红了樱桃，绿了芭蕉，个事种种，终于到了将proc版本迁移到java版本的时机。
+ oracle相比informix而言，在卸数方面相对不那么方便。红了樱桃，绿了芭蕉，各事匆匆，终于到了将proc版本迁移到java版本的时机。
  
  在使用maven package打包后，生成一个**可执行jar**. 
  ```shell
