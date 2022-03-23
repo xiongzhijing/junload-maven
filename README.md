@@ -2,9 +2,11 @@
  oracle相比informix而言，在卸数方面相对不那么方便。以前使用proc写过一个unload，这次考虑迁移到java版本。
  使用maven package打包后，生成一个**可执行jar**.
  ```shell
- java -jar junload-1.0.0-jar-with-dependencies.jar 参数 
+ java -jar junload-1.0.0-jar-with-dependencies.jar -c configfile [ -t tabname ] [ -q sql ] [ -f sqlfile ] -d delimiter -o outfile 
  ````
- 
+
+# 参数说明
+
 ## -c configfile  数据库配置文件，如
 
 ```java
