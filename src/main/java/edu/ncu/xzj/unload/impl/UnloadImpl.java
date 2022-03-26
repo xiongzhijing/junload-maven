@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -24,6 +25,9 @@ public class UnloadImpl implements IUnload {
     private ICLIParse opt;
     private IUnloadDao dao;
 
+    final static String DEFAULT_DELI = "|@|";
+    final static String DEFAULT_DATEPATTERN = "yyyy-MM-dd HH:mm:ss";
+
     /*
      * 1、解析命令行参数
      * 2、准备好数据库连接参数
@@ -33,7 +37,10 @@ public class UnloadImpl implements IUnload {
         opt.parseCLI(args);
         dao = new UnloadDaoImpl(opt);
 
-        dataFmt = new DataFmtImpl(opt.getOpts().get("delimiter"));
+        String delimiter = opt.getOpts().getOrDefault("delimiter", DEFAULT_DELI);
+        String pattern = opt.getOpts().getOrDefault("datepattern", DEFAULT_DATEPATTERN);
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+        dataFmt = new DataFmtImpl(delimiter, sdf);
     }
 
     /* 根据命令行参数卸载数据
